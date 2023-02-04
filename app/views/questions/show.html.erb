@@ -1,0 +1,35 @@
+<div class="QuestionShow">
+  <div class="QuestionShowWrapper">
+    <div class="QuestionShowLabel">Q</div>
+    <div class="QuestionShowQA">
+      <div class="QuestionShowQATop">
+        <div class="QuestionShowQATopTitle"><%= @question.title %></div>
+        <div class="QuestionShowQATopName"><%= @question.name %></div>
+      </div>
+      <div class="QuestionShowQAContent"><%= @question.content %></div>
+    </div>
+  </div>
+
+  <div class="QuestionShowForm">
+    <div class="QuestionShowFormHead"></div>
+    <div class="QuestionShowFormBody">
+      <div class="QuestionShowFormBodyItems">
+        <%= form_with model: [@question, @answer], local: true do |form| %>
+          <%= form.text_area :content, placeholder: "回答する", class: "QuestionShowFormBodyItemsContent" %>
+          <%= form.text_field :name, placeholder: "ユーザー名", class: "QuestionShowFormBodyItemsName" %>
+          <%= form.submit "POST", class: "QuestionShowFormBodyItemsSubmit" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <% @answers.each do |answer| %>
+    <div class="QuestionShowWrapper">
+      <div class="QuestionShowLabel">A</div>
+      <div class="QuestionShowQA">
+        <div class="QuestionShowQAAnswerContent"><%= answer.content %></div>
+        <div class="QuestionShowQAAnswerName"><%= answer.name %></div>
+      </div>
+    </div>
+  <% end %>
+</div>

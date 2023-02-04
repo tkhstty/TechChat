@@ -1,0 +1,17 @@
+<div class="QuestionIndex">
+  <% @questions.each do |question| %>
+    <div class="QuestionIndexWrapper">
+      <div class="QuestionIndexCount">
+        <div class="QuestionIndexCountNumber"><%= question.answers.count %></div>
+        <div class="QuestionIndexCountComments">comments</div>
+      </div>
+      <div class="QuestionIndexQuestions">
+        <div class="QuestionIndexQuestionsTop">
+          <div class="QuestionIndexQuestionsTopTitle"><%= link_to question.title, question_path(question.id) %></div>
+          <div class="QuestionIndexQuestionsTopName"><%= question.name %></div>
+        </div>
+        <div class="QuestionIndexQuestionsContent"><%= question.content %></div>
+      </div>
+    </div>
+  <% end %>
+</div>
